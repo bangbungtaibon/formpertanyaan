@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="">Nama</label>
+        <input required type="text" name="" class="userinput" id="nama">
+
+        <label for="">Bagaimana cara kamu menggambarkan diri dalam tiga kata?</label>
+        <input required type="text" name="" class="userinput" id="text1">
+
+        <label for="">Apa pencapaian terbesar yang pernah kamu raih?</label>
+        <input required type="text" name="" class="userinput" id="text2">
+
+        <label for="">Siapa tokoh yang paling menginspirasi hidupmu, dan mengapa?</label>
+        <input required type="text" name="" class="userinput" id="text3">
+
+        <label for="">Apa film atau buku favoritmu sepanjang masa?</label>
+        <input required type="text" name="" class="userinput" id="text4">
+
+        <label for="">Bagaimana kamu biasanya mengatasi situasi yang membuat stres?</label>
+        <input required type="text" name="" class="userinput" id="text5">
+
+        <label for="">Apa makanan favoritmu yang tidak bisa kamu lewatkan?</label>
+        <input required type="text" name="" class="userinput" id="text6">
+
+        <label for="">Jika kamu bisa bepergian ke mana saja di dunia, ke mana tujuanmu?</label>
+        <input required type="text" name="" class="userinput" id="text7">
+
+        <label for="">Apa hal yang paling kamu syukuri dalam hidup ini?</label>
+        <input required type="text" name="" class="userinput" id="text8">
+
+        <label for="">Apa cita-citamu waktu kecil, dan apakah masih relevan sampai sekarang?</label>
+        <input required type="text" name="" class="userinput" id="text9">
+
+        <button type="submit">KIRIM</button>
+
+    </form>
+</body>
+</html>
+<script>
+        const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        var local = localStorage.getItem('alasan');
+        var local2 = localStorage.getItem('no : ');
+        var text1 = document.getElementById("text1").value;
+        var text2 = document.getElementById("text2").value;
+        var text3 = document.getElementById("text3").value;
+        var text4 = document.getElementById("text4").value;
+        var text5 = document.getElementById("text5").value;
+        var text6 = document.getElementById("text6").value;
+        var text7 = document.getElementById("text7").value;
+        var text8 = document.getElementById("text8").value;
+        var text9 = document.getElementById("text9").value;
+        var nama = document.getElementById("nama").value;
+
+
+
+
+        var pessan = nama + " || " + local + " || " + local2 + " || " + text1 + " || " + text2 + " || " + text3 + " || " + text4 + " || " + text5 + " || " + text6 + " || " + text7 + " || " + text8 + " || " + text9;
+        var token = "7048623051:AAF0JKkI1OSJYiNUOejKVxGy8AeDRG7nvnU";
+        var chat_id = 5869352666;
+        var url = 'https://api.telegram.org/bot7048623051:AAF0JKkI1OSJYiNUOejKVxGy8AeDRG7nvnU/sendMessage?chat_id=5869352666&text='+pessan;
+
+        let api = new XMLHttpRequest();
+        api.open('GET', url, true);
+        api.send();
+
+        console.log("SUKSES TERKIRIM");
+        alert("terimakasih😉");
+    });
+</script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        min-width: 50vw;
+        flex-direction: column;
+        gap: 10px;
+        background-color: antiquewhite;
+        border-radius: 20px;
+    }
+
+    .userinput{
+        width: 70%;
+    }
+
+    label{
+        text-align: left;
+        width: 70%;
+    }
+
+    button{
+        width: 70%;
+    }
+</style>
